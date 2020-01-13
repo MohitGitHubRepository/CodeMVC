@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MyShop.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public readonly string Id;
+       // public readonly string Id;
         [Required]
         [DisplayName("Product Name")]
         public string Name { get; set; }

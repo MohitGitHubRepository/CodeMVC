@@ -1,4 +1,5 @@
 ﻿using MyShop.Core.Models;
+using MyShop.DataAccess.InMemory;
 using MyShop.DataAccess.InMemory.ProductRpository;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProductCategoryController : Controller
     {
-        ProductCategoryRepository context;
+        InMemoryProductRepository<ProductCategory> context;
         public ProductCategoryController()
         {
-            context = new ProductCategoryRepository();
+            context = new InMemoryProductRepository<ProductCategory>();
         }
 
         public ActionResult AddProductCategory()
@@ -74,7 +75,7 @@ namespace MyShop.WebUI.Controllers
             }
             else
             {
-                throw new Exception("item not found");
+                return new HttpNotFoundResult("item not found");
             }
         }
         [HttpPost]

@@ -1,5 +1,6 @@
 ﻿using MyShop.Core.Models;
 using MyShop.Core.ViewModels;
+using MyShop.DataAccess.InMemory;
 using MyShop.DataAccess.InMemory.ProductRpository;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,12 @@ namespace MyShop.WebUI.Controllers
     public class ProductController : Controller
     {
 
-        ProductDetailsRepository context;
-        ProductCategoryRepository contextCategory;
+        InMemoryProductRepository<Product> context;
+        InMemoryProductRepository<ProductCategory> contextCategory;
         public ProductController()
         {
-            context = new ProductDetailsRepository();
-            contextCategory = new ProductCategoryRepository();
+            context = new InMemoryProductRepository<Product>();
+            contextCategory = new InMemoryProductRepository<ProductCategory>();
 
         }
      

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyShop.Core.Models
 {
-    public class ProductCategory
+    public class ProductCategory :BaseEntity
     {
-        public readonly string Id;
+       // public readonly string Id;
         public string Category { get; set; }
 
         public ProductCategory()

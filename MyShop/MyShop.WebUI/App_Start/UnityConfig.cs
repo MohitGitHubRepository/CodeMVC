@@ -3,6 +3,7 @@ using Unity;
 using MyShop.Core.Contracts;
 using MyShop.DataAccess.InMemory;
 using MyShop.Core.Models;
+using MyShop.DataAccess.SQL;
 
 namespace MyShop.WebUI
 {
@@ -41,8 +42,8 @@ namespace MyShop.WebUI
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-            container.RegisterType<IInMemoryProductRepository<Product>, InMemoryProductRepository<Product>>();
-            container.RegisterType<IInMemoryProductRepository<ProductCategory>, InMemoryProductRepository<ProductCategory>>();
+            container.RegisterType<IRepositroy<Product>, SQLRepository<Product>>();
+            container.RegisterType<IRepositroy<ProductCategory>, SQLRepository<ProductCategory>>();
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
         }

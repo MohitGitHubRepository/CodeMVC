@@ -3,7 +3,7 @@ using MyShop.Core.Models;
 
 namespace MyShop.Core.Contracts
 {
-    public interface IInMemoryProductRepository<T> where T : BaseEntity
+    public interface IRepositroy<T> where T : BaseEntity
     {
         IEnumerable<T> Collection();
         void Commit();

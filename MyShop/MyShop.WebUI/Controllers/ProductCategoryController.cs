@@ -12,8 +12,8 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProductCategoryController : Controller
     {
-        IInMemoryProductRepository<ProductCategory> context;
-        public ProductCategoryController(IInMemoryProductRepository<ProductCategory> productRepository)
+        IRepositroy<ProductCategory> context;
+        public ProductCategoryController(IRepositroy<ProductCategory> productRepository)
         {
             context = productRepository;
         }

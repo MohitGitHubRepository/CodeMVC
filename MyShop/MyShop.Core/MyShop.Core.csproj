@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IInMemoryProductRepository.cs" />
+    <Compile Include="Contracts\IRepositorry.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Product.cs" />

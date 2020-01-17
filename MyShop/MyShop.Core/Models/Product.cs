@@ -16,7 +16,6 @@ namespace MyShop.Core.Models
         public string Name { get; set; }
         [Required]
         [DisplayName("Product Description")]
-        [Range(0,20)]
         public string Description { get; set; }
         [Required]
         [DisplayName("Product Price")]

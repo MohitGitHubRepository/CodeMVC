@@ -2,7 +2,9 @@
 using MyShop.Core.Models;
 using MyShop.Core.ViewModels;
 using System;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MyShop.WebUI.Controllers
@@ -28,7 +30,7 @@ namespace MyShop.WebUI.Controllers
         }
         [HttpPost]
         [ActionName("AddProduct")]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct(Product product ,HttpPostedFileBase file)
         {
             if(!ModelState.IsValid)
             {
@@ -36,6 +38,11 @@ namespace MyShop.WebUI.Controllers
             }
             else
             {
+                if(file!=null)
+                {
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//Image//") + product.Image);
+                }
                 context.Insert(product);
                 context.Commit();
                 return RedirectToAction("List");
@@ -94,7 +101,7 @@ namespace MyShop.WebUI.Controllers
         }
         [HttpPost]
         [ActionName("Update")]
-        public ActionResult UpdatePost(Product product, string Id)
+        public ActionResult UpdatePost(Product product, string Id,HttpPostedFileBase file)
         {
             if(!ModelState.IsValid)
             {
@@ -104,11 +111,16 @@ namespace MyShop.WebUI.Controllers
             var productToUpdate = context.Find(Id);
             if (productToUpdate != null)
             {
+                if (file != null)
+                {
+                    productToUpdate.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//Image//") + productToUpdate.Image);
+                }
                 productToUpdate.Name = product.Name;
                 productToUpdate.Description = product.Description;
                 productToUpdate.Price = product.Price;
                 productToUpdate.Category = product.Category;
-                productToUpdate.Image = product.Image;
+                //productToUpdate.Image = product.Image;
 
                 context.Edit(productToUpdate);
                 context.Commit();

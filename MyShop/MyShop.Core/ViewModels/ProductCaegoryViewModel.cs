@@ -1,0 +1,31 @@
+﻿using MyShop.Core.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyShop.Core.ViewModels
+{
+    public class ProductCaegoryViewModel
+    {
+         IEnumerable<Product> product { get; set; }
+         IEnumerable<ProductCategory> productCategory { get; set; }
+
+       public void setViewModel(IEnumerable<Product> products, IEnumerable<ProductCategory> productCategory)
+       {
+            this.product = products;
+            this.productCategory = productCategory;
+
+       }
+        public IEnumerable<Product> GetProducts()
+        {
+            return this.product;
+        }
+
+        public IEnumerable<ProductCategory> GetProductCategory()
+        {
+            return this.productCategory;
+        }
+    }
+}

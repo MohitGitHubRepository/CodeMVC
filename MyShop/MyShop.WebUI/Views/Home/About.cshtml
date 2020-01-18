@@ -1,7 +1,45 @@
-﻿@{
+﻿@model MyShop.Core.Models.Product
+
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@Model.Name</h2>
+<div class="container">
+    <div class="col-md-2" style="padding:10px;margin:10px">
+        <img src="~/Content/Image/@Model.Image" style="height:300px;width:200px" />
+    </div>
+    <div class="col-md-10" style="padding:10px;margin:10px">
 
-<p>Use this area to provide additional information.</p>
+
+
+        <b>@Html.DisplayNameFor(model => model.Name)</b>
+        :
+        @Html.DisplayFor(model => model.Name) </br>
+
+
+
+        <b> @Html.DisplayNameFor(model => model.Description)</b>
+        :
+        @Html.DisplayFor(model => model.Description)</br>
+
+
+
+        <b>@Html.DisplayNameFor(model => model.Category)</b>
+        :
+        @Html.DisplayFor(model => model.Category)</br>
+
+
+
+        <b> @Html.DisplayNameFor(model => model.Price)</b>
+        :
+        @Html.DisplayFor(model => model.Price)</br>
+
+
+    </div>
+
+
+
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index", new { })
+</div>

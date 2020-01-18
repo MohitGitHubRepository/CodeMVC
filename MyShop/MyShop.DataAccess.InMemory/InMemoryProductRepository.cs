@@ -49,9 +49,9 @@ namespace MyShop.DataAccess.InMemory
         {
             list.Remove(Item);
         }
-        public IEnumerable<T> Collection()
+        public IQueryable<T> Collection()
         {
-            return list.AsEnumerable();
+            return list.AsQueryable();
         }
     }
 }

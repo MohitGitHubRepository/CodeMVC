@@ -28,6 +28,7 @@ namespace MyShop.WebUI.Controllers
             productViewModel.productCategories = contextCategory.Collection().ToList();
             return View(productViewModel);
         }
+
         [HttpPost]
         [ActionName("AddProduct")]
         public ActionResult AddProduct(Product product ,HttpPostedFileBase file)

@@ -19,9 +19,9 @@ namespace MyShop.DataAccess.SQL
             this.dbset = this.context.Set<T>();
 
         }
-        public IEnumerable<T> Collection()
+        public IQueryable<T> Collection()
         {
-            return dbset.AsEnumerable();
+            return dbset.AsQueryable();
         }
 
         public void Commit()
